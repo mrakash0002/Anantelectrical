@@ -1,0 +1,28 @@
+{
+  "name": "anantelectrical",
+  "version": "1.0.0",
+  "description": "Anant Electrical - Govt. Registered Class 2 Electrical Contractor in Bengaluru",
+  "main": "index.html",
+  "scripts": {
+    "start": "http-server -p 8000 -o",
+    "build": "echo 'Static site - no build needed'",
+    "serve": "http-server -p 8000",
+    "deploy": "git push origin main"
+  },
+  "keywords": [
+    "electrical contractor",
+    "class 2 contractor",
+    "electrical services",
+    "Bengaluru",
+    "industrial electrical",
+    "commercial electrical",
+    "residential electrical"
+  ],
+  "author": "Akash R & Preetham R",
+  "license": "Copyright 2026 Anant Electrical. All Rights Reserved.",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mrakash0002/Anantelectrical.git"
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "name": "Anantelectrical Web Development",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:1-18-bullseye",
+  
+  "features": {
+    "ghcr.io/devcontainers/features/git:1": {},
+    "ghcr.io/devcontainers/features/github-cli:1": {}
+  },
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "esbenp.prettier-vscode",
+        "ecmel.vscode-html-css",
+        "bradlc.vscode-tailwindcss",
+        "ritwickdey.LiveServer",
+        "redhat.vscode-yaml",
+        "eamodio.gitlens"
+      ],
+      "settings": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true,
+        "html.format.wrapLineLength": 120,
+        "files.exclude": {
+          "**/node_modules": true,
+          "**/.git": true
+        }
+      }
+    }
+  },
+
+  "forwardPorts": [5500, 8000, 3000],
+  "portsAttributes": {
+    "5500": {
+      "label": "Live Server",
+      "onAutoForward": "notify"
+    },
+    "8000": {
+      "label": "Development Server",
+      "onAutoForward": "notify"
+    },
+    "3000": {
+      "label": "Web Server",
+      "onAutoForward": "notify"
+    }
+  },
+
+  "postCreateCommand": "npm install -g http-server && echo 'Development environment ready!'",
+  
+  "remoteUser": "node"
+}
