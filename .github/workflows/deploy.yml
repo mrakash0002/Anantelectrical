@@ -3,39 +3,33 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
+  # This allows you to run the deployment manually from the Actions tab
+  workflow_dispatch:
 
 permissions:
-  id-token: write
   contents: read
   pages: write
-  actions: read
+  id-token: write
 
 jobs:
   deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
-    env:
-      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
-    
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v6
+      - name: Checkout repository
+        uses: actions/checkout@v4
     
-    - name: Setup Pages
-      uses: actions/configure-pages@v6
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
     
-    - name: Upload artifact
-      uses: actions/upload-pages-artifact@v5
-      with:
-        path: '.'
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # This uploads your entire folder (including index.html and assets)
+          path: '.'
     
-    - name: Deploy to GitHub Pages
-      id: deployment
-      uses: actions/deploy-pages@v5
-    
-    - name: Deployment Summary
-      run: |
-        echo "✅ Site deployed successfully!"
-        echo "📍 URL: https://anantelectrical.in"
-        echo "⏱️ Deployment Time: $(date)"
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
