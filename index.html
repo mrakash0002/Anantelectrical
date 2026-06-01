@@ -3,216 +3,532 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anant Electrical | Integrated Electrical & IT Solutions</title>
+    <title>Anant Electrical | Commercial Infrastructure & Engineering</title>
+    
+    <!-- Inbuilt AE Browser Tab Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23141417'/%3E%3Ctext x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' font-family='system-ui, -apple-system, sans-serif' font-weight='800' font-size='13' fill='%23ffffff'%3EA%3Ctspan fill='%232563eb'%3EE%3C/tspan%3E%3C/text%3E%3C/svg%3E">
 
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='85' font-family='Arial' font-weight='900' fill='%2393278F'>AE</text></svg>">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
         :root {
-            /* Brand Colors based on anantelectrical.in */
-            --brand-blue: #2C7BB6;
-            --brand-purple: #93278F;
-            --accent-gold: #D4AF37;
-            --slate-gray: #333333;
-            --light-bg: #f8f9fa;
-            --white: #ffffff;
+            --bg-black: #09090b;
+            --bg-card: #141417;
+            --bg-card-hover: #1c1c21;
+            --accent-blue: #2563eb;
+            --accent-glow: rgba(37, 99, 235, 0.15);
+            --text-main: #ffffff;
+            --text-muted: #a1a1aa;
+            --border-color: rgba(255, 255, 255, 0.08);
+            --border-hover: rgba(255, 255, 255, 0.2);
+            --font-sans: 'Inter', sans-serif;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
-        body { background-color: var(--white); color: var(--slate-gray); scroll-behavior: smooth; }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-        /* NAVIGATION */
-        header {
-            background: var(--white);
-            padding: 20px 8%;
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--bg-black);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* High-End Global Grid Overlay Effect */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+            background-size: 40px 40px;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* Top Premium Navigation Bar */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+            background: rgba(9, 9, 11, 0.7);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 1.25rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
         }
 
-        .logo-text { font-size: 1.6rem; font-weight: 800; text-transform: uppercase; }
-        .logo-blue { color: var(--brand-blue); }
-        .logo-purple { color: var(--brand-purple); }
-        
-        nav a { text-decoration: none; color: #444; margin-left: 25px; font-weight: 700; font-size: 0.9rem; text-transform: uppercase; transition: 0.3s; }
-        nav a:hover { color: var(--brand-purple); }
-
-        /* HERO SECTION - Blue to Purple Gradient Overlay */
-        .hero {
-            background: linear-gradient(135deg, rgba(44, 123, 182, 0.9), rgba(147, 39, 143, 0.85)), 
-                        url('https://images.unsplash.com/photo-1544724569-5f546fd6f2b5?auto=format&fit=crop&q=80&w=1200');
-            background-size: cover;
-            background-position: center;
-            height: 70vh;
+        .logo {
+            font-weight: 700;
+            font-size: 1.2rem;
+            letter-spacing: -0.02em;
             display: flex;
-            flex-direction: column;
-            justify-content: center;
             align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo span {
+            color: var(--accent-blue);
+        }
+
+        .nav-badge {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid var(--border-color);
+            padding: 0.35rem 0.75rem;
+            border-radius: 100px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            letter-spacing: 0.02em;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            padding: 12rem 0 6rem 0;
             text-align: center;
-            color: white;
-            padding: 0 10%;
+            position: relative;
         }
 
-        /* Compliance Badge in Hero */
-        .hero-badge {
-            background: var(--accent-gold);
-            color: #000;
-            padding: 8px 20px;
-            border-radius: 50px;
+        /* Tech Glow behind Hero */
+        .hero-glow {
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 400px;
+            height: 400px;
+            background: var(--accent-blue);
+            filter: blur(150px);
+            opacity: 0.12;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
             font-weight: 800;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            margin-bottom: 20px;
-            letter-spacing: 1px;
+            line-height: 1.1;
+            letter-spacing: -0.04em;
+            max-width: 900px;
+            margin: 0 auto 1.5rem auto;
+            background: linear-gradient(to bottom right, #ffffff 40%, #a1a1aa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        .hero h1 { font-size: 4rem; font-weight: 900; margin-bottom: 10px; line-height: 1.1; }
-        .hero p { font-size: 1.3rem; margin-bottom: 35px; font-weight: 600; }
+        .hero p {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 2.5rem auto;
+            font-weight: 400;
+        }
 
-        .btn {
-            background: var(--white);
-            color: var(--brand-purple);
-            padding: 18px 45px;
+        .hero-cta {
+            display: inline-flex;
+            align-items: center;
+            background: var(--text-main);
+            color: var(--bg-black);
+            padding: 0.8rem 1.6rem;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.95rem;
             text-decoration: none;
-            font-weight: 800;
-            text-transform: uppercase;
-            border-radius: 50px;
-            transition: 0.4s;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            transition: all 0.2s ease;
         }
-        .btn:hover { background: #eee; transform: translateY(-3px); }
 
-        /* SERVICES GRID */
-        .services { padding: 100px 8%; text-align: center; background: var(--light-bg); }
-        .grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-            gap: 25px; 
-            margin-top: 50px; 
+        .hero-cta:hover {
+            background: #e4e4e7;
+            transform: translateY(-1px);
         }
-        .card { 
-            background: white; 
-            padding: 45px; 
-            border-radius: 15px; 
-            text-align: left;
-            transition: 0.4s;
-            border-bottom: 6px solid var(--brand-blue);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-        }
-        .card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
-        .card .icon { font-size: 2.5rem; margin-bottom: 20px; display: block; }
-        .card h3 { margin-bottom: 15px; font-size: 1.4rem; color: var(--brand-purple); font-weight: 800; }
 
-        /* FOOTER */
-        footer { background: #1a1a1a; color: #fff; padding: 80px 8% 40px; }
-        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 50px; }
-        
-        .badge-box {
-            background: rgba(255,255,255,0.05);
-            padding: 20px;
+        /* --- Bento Box Layout Grid --- */
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            margin-bottom: 2.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .section-title::before {
+            content: '';
+            display: inline-block;
+            width: 4px;
+            height: 24px;
+            background: var(--accent-blue);
+            border-radius: 2px;
+        }
+
+        .grid-layout {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 6rem;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2.5rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .card:hover {
+            border-color: var(--border-hover);
+            background: var(--bg-card-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.05);
+        }
+
+        /* Subtle indicator corner line */
+        .card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent-blue), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .card:hover::after {
+            opacity: 1;
+        }
+
+        .card-icon {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--accent-blue);
+            background: rgba(37, 99, 235, 0.1);
+            border: 1px solid rgba(37, 99, 235, 0.2);
+            padding: 0.25rem 0.6rem;
             border-radius: 4px;
-            border-left: 3px solid var(--accent-gold);
-            margin-top: 15px;
+            display: inline-block;
+            margin-bottom: 1.5rem;
         }
-        .badge-box small { color: var(--accent-gold); text-transform: uppercase; font-size: 0.7rem; display: block; font-weight: 700; }
-        .badge-box strong { font-size: 0.95rem; color: #fff; }
 
-        .credits { margin-top: 60px; padding-top: 30px; border-top: 1px solid #333; text-align: center; font-size: 0.85rem; opacity: 0.6; }
+        .card h3 {
+            font-size: 1.35rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.75rem;
+        }
 
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            font-weight: 400;
+        }
+
+        /* Massive Span Card for Emphasis */
+        .card.span-2 {
+            grid-column: span 2;
+        }
+
+        /* --- High Quality Modern Showcase --- */
+        .showcase-block {
+            padding: 4rem 0 8rem 0;
+        }
+
+        .image-showcase-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .img-container {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            height: 480px;
+            background: #18181b;
+        }
+
+        .img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .img-container:hover img {
+            transform: scale(1.02);
+        }
+
+        .img-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 2rem;
+            background: linear-gradient(to top, rgba(9,9,11,0.9) 0%, transparent 100%);
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .img-info h4 {
+            font-size: 1.15rem;
+            font-weight: 600;
+        }
+
+        .img-info p {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        /* --- Footer Architecture --- */
+        footer {
+            background: #0c0c0e;
+            border-top: 1px solid var(--border-color);
+            padding: 6rem 0 3rem 0;
+            margin-top: 4rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 4rem;
+            padding-bottom: 4rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .footer-brand h2 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            margin-bottom: 1rem;
+        }
+
+        .footer-brand p {
+            color: var(--text-muted);
+            max-width: 360px;
+            font-size: 0.95rem;
+        }
+
+        .footer-col h5 {
+            color: var(--text-main);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1.25rem;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-col ul li a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.2s ease;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--text-main);
+        }
+
+        .footer-bottom {
+            padding-top: 2.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .footer-bottom .author span {
+            color: var(--text-main);
+            font-weight: 600;
+        }
+
+        /* --- Mobile Optimization --- */
+        @media (max-width: 1024px) {
+            .grid-layout, .image-showcase-grid, .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            .card.span-2 {
+                grid-column: span 1;
+            }
+            .img-container {
+                height: 320px;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="logo-text">
-            <span class="logo-blue">ANANT</span> <span class="logo-purple">ELECTRICAL</span>
+    <!-- Top Global Bar -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">Anant <span>Electrical</span></div>
+            <div class="nav-badge">HQ // Bangalore, KA</div>
         </div>
-        <nav>
-            <a href="#services">Services</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </header>
+    </nav>
 
-    <section class="hero">
-        <div class="hero-badge">Govt. Registered Class 2 Electrical Contractor</div>
-        <h1>Powering Your Vision</h1>
-        <p>Expert Solutions for Electrical, CCTV, Networking & Servers</p>
-        <a href="https://wa.me/919535751289" class="btn">Get a Professional Quote</a>
-    </section>
-
-    <section id="services" class="services">
-        <h2 style="font-size: 2.5rem; font-weight: 900; color: var(--brand-purple);">Complete Infrastructure Solutions</h2>
-        <div class="grid">
-            <div class="card">
-                <span class="icon">⚡</span>
-                <h3>Electrical Works</h3>
-                <p>Specialists in HT/LT panels, commercial wiring, and luxury residential projects with Govt. Class 2 certification.</p>
-            </div>
-            <div class="card">
-                <span class="icon">📷</span>
-                <h3>CCTV Systems</h3>
-                <p>Advanced surveillance solutions including IP camera setups and mobile remote monitoring.</p>
-            </div>
-            <div class="card">
-                <span class="icon">🌐</span>
-                <h3>Internet & Network</h3>
-                <p>High-speed business WiFi, structured cabling, and robust LAN infrastructure for modern offices.</p>
-            </div>
-            <div class="card">
-                <span class="icon">🖥️</span>
-                <h3>Server Systems</h3>
-                <p>Data center management, server rack installation, and maintenance for business continuity.</p>
-            </div>
-            <div class="card">
-                <span class="icon">🏗️</span>
-                <h3>Industrial Support</h3>
-                <p>Power management audits and heavy machinery electrical support for manufacturing units.</p>
-            </div>
-            <div class="card">
-                <span class="icon">🛠️</span>
-                <h3>AMC Maintenance</h3>
-                <p>Comprehensive Annual Maintenance Contracts to ensure your power and IT systems never fail.</p>
-            </div>
-        </div>
-    </section>
-
-    <footer id="contact">
-        <div class="footer-grid">
-            <div>
-                <h4 style="color:var(--white); margin-bottom: 20px;">ANANT ELECTRICAL</h4>
-                <p>#39, 3rd Cross Road, Near Railway Gate<br>Kengeri, Bengaluru 560060</p>
-                <div class="badge-box">
-                    <small>UDYAM Registration</small>
-                    <strong>UDYAM-KR-03-0662476</strong>
-                </div>
-                <div class="badge-box">
-                    <small>GST Identification</small>
-                    <strong>29EYWPR1516N1ZD</strong>
-                </div>
-            </div>
-            <div>
-                <h4 style="margin-bottom: 20px;">Direct Contact</h4>
-                <p>📞 +91 95357 51289 (Preetham )</p>
-                <p>📞 +91 99723 49924 (Akash )</p>
-                <p style="margin-top: 15px;">📧 Anantelectricals5@gmail.com</p>
-                <p>📧 akash@anantelectrical.in</p>
-            </div>
-            <div>
-                <h4 style="margin-bottom: 20px;">Service Status</h4>
-                <p>Serving Bengaluru since inception with zero downtime priority.</p>
-                <p style="margin-top: 15px; color: var(--accent-gold);">Available 24/7 for Emergency Support.</p>
-            </div>
-        </div>
+    <!-- Master Container Frame -->
+    <div class="container">
         
-        <div class="credits">
-            <p>© 2026 Anant Electrical. All Rights Reserved. | Web Designed by Akash</p>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-glow"></div>
+            <h1>Commercial Infrastructure Execution Aligned to Enterprise Scales.</h1>
+            <p>High-precision technical contracting delivering turn-key retail infrastructure, advanced power systems, and structural modifications across Bangalore.</p>
+            <a href="mailto:Anantelectricals5@gmail.com" class="hero-cta">Initialize Project Execution</a>
+        </section>
+
+        <!-- Capabilities Systems Grid -->
+        <section>
+            <h2 class="section-title">Core Capability Metrics</h2>
+            <div class="grid-layout">
+                
+                <!-- 01 -->
+                <div class="card span-2">
+                    <span class="card-icon">01 // OPERATIONS</span>
+                    <h3>Retail Store Works</h3>
+                    <p>Complete single-source structural buildout and deployment engineering strictly optimized for heavy-footprint commercial properties. We manage and execute structural configurations from clear base shells directly into final operational form factor layouts safely.</p>
+                </div>
+
+                <!-- 02 -->
+                <div class="card">
+                    <span class="card-icon">02 // INTEGRATION</span>
+                    <h3>Lights & Electrical</h3>
+                    <p>Architectural lighting frameworks fully synchronized with main panel structural safety distribution loops and optimized load wiring grids.</p>
+                </div>
+
+                <!-- 03 -->
+                <div class="card">
+                    <span class="card-icon">03 // FIXTURES</span>
+                    <h3>Racks Installation</h3>
+                    <p>High-capacity structural logistics inventory storage modules assembled cleanly for perfect workspace layout balances and physical weight optimization metrics.</p>
+                </div>
+
+                <!-- 04 -->
+                <div class="card">
+                    <span class="card-icon">04 // PHYSICAL</span>
+                    <h3>Civil Structural Works</h3>
+                    <p>Heavy core material alterations, interior adjustments, masonry frameworks, and durable foundation structural floor upgrades built for severe active utilization cycles.</p>
+                </div>
+
+                <!-- 05 -->
+                <div class="card">
+                    <span class="card-icon">05 // SECURITY</span>
+                    <h3>Security & IT Matrices</h3>
+                    <p>Commercial active data routing topologies, server enclosures, and high-fidelity closed-circuit video distribution paths built for asset protection.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Production Showcase Block -->
+        <section class="showcase-block">
+            <h2 class="section-title">Field Performance Gallery</h2>
+            <div class="image-showcase-grid">
+                
+                <div class="img-container">
+                    <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1600&q=80" alt="High-Capacity Spatial Systems">
+                    <div class="img-overlay">
+                        <div class="img-info">
+                            <h4>High-Capacity Spatial Modules</h4>
+                            <p>Rack Layouts & Structural Assembly</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="img-container">
+                    <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1000&q=80" alt="Civil Engineering Foundations">
+                    <div class="img-overlay">
+                        <div class="img-info">
+                            <h4>Site Civil Foundations</h4>
+                            <p>Structural Adaptations & Masonry</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Technical Corporate Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                
+                <div class="footer-brand">
+                    <h2>Anant Electrical</h2>
+                    <p>High-execution engineering and contracting services specializing in high-performance retail layouts and unified power distribution models.</p>
+                </div>
+
+                <div class="footer-col">
+                    <h2>Corporate Anchors</h2>
+                    <ul>
+                        <li><a href="https://anantelectrical.in/" target="_blank">anantelectrical.in</a></li>
+                        <li><a href="mailto:Anantelectricals5@gmail.com">Anantelectricals5@gmail.com</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h2>Location Hub</h2>
+                    <ul>
+                        <li style="color: var(--text-muted); font-size: 0.95rem;">Bangalore, Karnataka</li>
+                        <li style="color: var(--text-muted); font-size: 0.95rem;">India</li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+                <div>
+                    &copy; 2024 - 2026 Anant Electrical. All Rights Reserved.
+                </div>
+                <div class="author">
+                    Crafted by <span>AKASH</span>
+                </div>
+            </div>
         </div>
     </footer>
 
